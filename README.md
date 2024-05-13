@@ -1,12 +1,12 @@
 # Ex02 Django ORM Web Application
-## Date: 05.03.24
+## Date: 
 
 ## AIM
 To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
 
-![alt text](<Screenshot 2024-03-05 111138.png>)
+Include your ER diagram here
 
 ## DESIGN STEPS
 
@@ -23,30 +23,27 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+### admin.py
 ```
-model.py
-
+from django.contrib import admin
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee,EmployeeAdmin)
+```
+### models.py
+```
 from django.db import models
 from django.contrib import admin
-class Book_DB(models.Model):
-    bookno=models.IntegerField(primary_key=True);
-    authorname=models.CharField(max_length=20);
-    bookname=models.CharField(max_length=50);
-    version=models.IntegerField();
-    pageno=models.IntegerField();
-class Book_DBAdmin(admin.ModelAdmin):
-    list_display=("bookno","authorname","bookname","version","pageno");
+class Employee(models.Model):
+    empid=models.IntegerField()
+    empname=models.CharField(max_length=20)
+    dept=models.CharField(max_length=10)
+    salary=models.FloatField()
 
-admin.py
-
-from django.contrib import admin
-from .models import Book_DB,Book_DBAdmin
-admin.site.register(Book_DB,Book_DBAdmin)
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('empid','empname','dept','salary')
 ```
-
 ## OUTPUT
-
-![alt text](<Screenshot 2024-03-04 143504.png>)
+![image](https://github.com/dfghytr/ORM/assets/138970628/79e7294b-0434-4d78-a0d9-65fda603ffcb)
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
